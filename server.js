@@ -1,3 +1,4 @@
+
 var express = require('express');
 // var logger = require("morgan");
 var mongoose = require("mongoose");
@@ -221,4 +222,5 @@ app.delete("/notes/delete/:note_id/:article_id", function (req, res) {
 // Start the server
 app.listen(PORT, function () {
    console.log("App running on port " + PORT + "!");
+
 });
