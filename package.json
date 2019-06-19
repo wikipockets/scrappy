@@ -1,0 +1,40 @@
+{
+  "name": "scrappy",
+  "version": "1.0.0",
+  "description": "webscraper tool using mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib",
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wikipockets/scrappy.git"
+  },
+  "keywords": [
+    "webscraper",
+    "mongo",
+    "javascript",
+    "express"
+  ],
+  "author": "Wikipockets",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wikipockets/scrappy/issues"
+  },
+  "homepage": "https://github.com/wikipockets/scrappy#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mongoose": "^5.5.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}

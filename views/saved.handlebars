@@ -1,0 +1,71 @@
+<div class="container">
+
+   <div class="col-md-12">
+      <h2 class="text-center">Saved Articles</h2>
+      <hr>
+      {{#if article}}
+      {{#each article}}
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h4>{{this.title}}</h4>
+         </div>
+         <div class="panel-body">
+            <p> {{this.summary}}</p>
+            <a href={{this.link}} target="_blank">{{this.link}}</a>
+            <br><br>
+            <button type="button" class="btn btn-success addNote" data-toggle="modal"
+               data-target="#noteModal{{this._id}}" data-id={{this._id}}>View/Add Notes</button>
+            <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
+         </div>
+      </div>
+      {{/each}}
+      {{else}}
+      <div class="panel panel-default">
+         <div class="panel-body">
+            <h4>You have no saved articles.</h4>
+         </div>
+      </div>
+      {{/if}}
+   </div>
+</div>
+
+<!--Clicked Notes Modal-->
+<!--Notes Modal-->
+
+<div class="modal fade modalNote" id="noteModal{{this._id}}" tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Notes for {{this.title}}</h4>
+         </div>
+         <div class="modal-body">
+            {{#if this.notes}}
+            {{#each this.notes}}
+            <div class="panel panel-default">
+               <div class="panel-body">
+                  <p class="previousNotes"> {{this.body}}</p>
+                  <button type="button" class="btn btn-danger deleteNote" data-note-id={{this._id}}
+                     data-article-id={{this.article}}>X</button>
+               </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="panel panel-default">
+               <div class="panel-body">
+                  <h4>No notes for this article yet.</h4>
+               </div>
+            </div>
+            {{/if}}
+            <div class="form-group">
+               <textarea id="noteText{{this._id}}" class="form-control" rows="4" placeholder="New Note"></textarea>
+            </div>
+
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-primary saveNote" data-id={{this._id}}>Save Note</button>
+         </div>
+      </div>
+   </div>
+</div>
