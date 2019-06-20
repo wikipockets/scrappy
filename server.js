@@ -1,8 +1,7 @@
 
 var express = require('express');
-// var logger = require("morgan");
 var mongoose = require("mongoose");
-
+var path = require("path");
 // Our scraping tools
 
 var axios = require("axios");
@@ -51,7 +50,7 @@ mongoose.connect(MONGODB_URI, {
 // get all the articles
 
 app.get("/", function (req, res) {
-   model.Article.find({}, function (error, data) {
+   model.Article.find({"saved": false}, function (error, data) {
       var hbsObject = {
          article: data
       };
@@ -192,11 +191,11 @@ app.post("/articles/delete/:id", function (req, res) {
          saved: false,
       })
       .then(function (dbArticle) {
-         res.json(dbArticle)
+         res.json(dbArticle);
          // console.log(dbArticle);
       })
       .catch(function (err) {
-         res.json(err)
+         res.json(err);
       });
 });
 
