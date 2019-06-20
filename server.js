@@ -56,7 +56,7 @@ app.get("/", function (req, res) {
          article: data
       };
       //   console.log(hbsObject);
-      res.render("saved", hbsObject);
+      res.render("index", hbsObject);
    });
 });
 
